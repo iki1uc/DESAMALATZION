@@ -11,4 +11,12 @@ export const ETAGE3 = (v = 0) => {
 };
 
 export default ETAGE3;
+export function trackRIR(x, y, z) {
+    return {
+        exist: x !== null && y !== null && z !== null,
+        structure: (x + y + z) % 3 === 0,
+        purity: Math.abs(x - y) + Math.abs(y - z),
+        packet: { x, y, z }
+    };
+}
 
