@@ -1,5 +1,4 @@
 export function VIEW_81_MATRIX(matrix) {
-
     const div = document.createElement("div");
     div.className = "matrix81";
 
@@ -48,3 +47,5 @@ export function VIEW_81_MATRIX(matrix) {
 
     return div;
 }
+
+export default VIEW_81_MATRIX;
