@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NANO · OUT · Ausgabe</title>
+<style>
+body{background:#000;color:#0f0;font-family:monospace;padding:10px;margin:0}
+pre{font-size:11px;line-height:1.4;white-space:pre-wrap}
+.box{border:1px solid #0f0;padding:8px;margin:4px 0;border-radius:4px;background:#0a0a0a}
+.ok{color:#6bffa9}
+.err{color:#ff6b8a}
+.warn{color:#ffd700}
+.info{color:#66ccff}
+</style>
+</head>
+<body>
+
+<pre>
+╔═══════════════════════════════════════════╗
+║  NANO · OUT · AUSGABE                    ║
+║  EMPFANGT VON IN                         ║
+╚═══════════════════════════════════════════╝
+</pre>
+
+<div class="box" id="params">
+    <pre style="color:#0a0">⏳ Warte auf Parameter...</pre>
+</div>
+
+<div class="box" id="output">
+    <pre style="color:#0a0">⏳ Warte auf Berechnung...</pre>
+</div>
+
+<div class="box" id="kernel">
+    <pre style="color:#444">⏳ Kernel wartet...</pre>
+</div>
+
+<script>
+// ─── KERNEL ──────────────────────────────────────────────────
+const KERNEL = {
+    etagen: [3, 9, 27, 81, 729],
+    trennung(v, e) {
+        const q = Math.floor(v / e);
+        return {
+            geteilt: v / e,
+            mod: v % e,
+            quotient: q,
+            rest: v - q * e
+        };
+    },
+    run(v) {
+        const r = {};
+        this.etagen.forEach(e => { r[e] = this.trennung(v, e); });
+        return r;
+    }
+};
+
+// ─── AXIOME ──────────────────────────────────────────────────
+const AXIOME = {
+    d: { label: "Dimension", symbol: "◇", vector: 1.11 },
+    e: { label: "Energie", symbol: "⚡", vector: 1.33 },
+    i: { label: "Identität", symbol: "◆", vector: 0.77 },
+    n: { label: "Narrativ", symbol: "📖", vector: 0.92 },
+    o: { label: "Orbit", symbol: "◎", vector: 1.44 },
+    r: { label: "Raum", symbol: "▣", vector: 1.66 },
+    s: { label: "System", symbol: "⬡", vector: 1.21 },
+    w: { label: "Welle", symbol: "〜", vector: 1.55 },
+    u: { label: "Universum", symbol: "🌌", vector: 2.0 }
+};
+
+// ─── RIR ─────────────────────────────────────────────────────
+const RIR = {
+    exist(i) { return i !== undefined && i !== null; },
+    structure(i) {
+        if (typeof i !== "object") return false;
+        return ["x","y","z"].every(k => k in i);
+    },
+    purity(i) {
+        const { x, y, z } = i;
+        return Number.isFinite(x) && Number.isFinite(y) && Number.isFinite(z);
+    },
+    filter(i) {
+        if (!this.exist(i)) return null;
+        if (!this.structure(i)) return null;
+        if (!this.purity(i)) return null;
+        return i;
+    },
+    return(i) {
+        const p = this.filter(i);
+        return p ? { RIR: "accept", packet: p } : { RIR: "reject" };
+    }
+};
+
+// ─── TYQ ─────────────────────────────────────────────────────
+function TYQ() {
+    const RAM = 8192, USED = 2048;
+    return { RAM, USED, FREE: RAM - USED };
+}
+
+// ─── RUN ─────────────────────────────────────────────────────
+function run(etage, wert, axiomKey) {
+    const axiom = AXIOME[axiomKey] || AXIOME.e;
+    const axis = Number(etage);
+    const val = Number(wert) || 81;
+
+    // Kernel
+    const kernelResult = KERNEL.run(val);
+    const etageResult = KERNEL.trennung(val, axis);
+
+    // DirectV
+    const dv = {
+        dir: axis * axiom.vector,
+        mag: Math.sqrt(axis * axiom.vector * 7.29),
+        flow: (axis * axiom.vector * 3.33).toFixed(2)
+    };
+    const transformed = Math.round((val * dv.dir + dv.mag) * 100) / 100;
+
+    // RIR
+    const rirCheck = RIR.return({ x: val, y: val + 3, z: val + 9 });
+
+    // TYQ
+    const tyq = TYQ();
+
+    // Output
+    return {
+        input: val,
+        etage: axis,
+        axiom: axiomKey,
+        axiomLabel: axiom.label,
+        axiomSymbol: axiom.symbol,
+        kernel: kernelResult,
+        etageResult: etageResult,
+        directV: dv,
+        vector: transformed,
+        rir: rirCheck,
+        tyq: tyq,
+        timestamp: new Date().toISOString()
+    };
+}
+
+// ─── URL‑Parameter auslesen ──────────────────────────────────
+function getParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        etage: params.get('etage') || '81',
+        wert: params.get('wert') || '81',
+        axiom: params.get('axiom') || 'e'
+    };
+}
+
+// ─── ANZEIGE ─────────────────────────────────────────────────
+function display() {
+    const { etage, wert, axiom } = getParams();
+
+    // Parameter anzeigen
+    document.getElementById('params').innerHTML = `
+        <pre style="color:#0ff">
+📥 EMPFANGEN:
+ETAGE: ${etage}
+WERT:  ${wert}
+AXIOM: ${axiom}
+TIMESTAMP: ${new Date().toISOString()}
+        </pre>
+    `;
+
+    // Berechnung
+    const result = run(etage, wert, axiom);
+
+    // Output
+    document.getElementById('output').innerHTML = `
+        <pre style="color:#0f0">
+📊 ERGEBNIS:
+${JSON.stringify(result, null, 2)}
+        </pre>
+    `;
+
+    // Kernel (alle Etagen)
+    document.getElementById('kernel').innerHTML = `
+        <pre style="color:#6bffa9">
+🔷 KERNEL · ALLE ETAGEN (3·9·27·81·729):
+${Object.keys(result.kernel).map(e =>
+    `${e}: geteilt=${result.kernel[e].geteilt.toFixed(3)}, mod=${result.kernel[e].mod}, rest=${result.kernel[e].rest}`
+).join('\n')}
+        </pre>
+    `;
+}
+
+// ─── AUTO‑RUN ─────────────────────────────────────────────────
+window.onload = function() {
+    display();
+
+    // Bei Änderung der URL (z.B. durch IN) neu laden
+    window.addEventListener('popstate', display);
+};
+
+console.log("✅ NANO · OUT geladen");
+</script>
+
+</body>
+</html>
