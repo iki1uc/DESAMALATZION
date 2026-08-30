@@ -1,1 +1,16 @@
+export const API_READY = () => {
+    const stamp = () => new Date().toISOString();
 
+    return {
+        api: "ready",
+        version: "1.0",
+        timestamp: stamp(),
+        ping: () => "pong",
+        status: () => ({
+            api: "ready",
+            time: stamp()
+        })
+    };
+};
+
+export default API_READY;
