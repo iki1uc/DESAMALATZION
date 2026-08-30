@@ -3,43 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DESAMALATZION · ALLES · index</title>
+<title>DISpatcher · KERNEL · ALLE MODULE</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a12;color:#d0d9e6;font-family:Consolas,monospace;padding:16px;min-height:100vh}
-h1{text-align:center;letter-spacing:6px;margin-bottom:4px;background:linear-gradient(90deg,#ffd700,#00ccff,#ff66ff,#00ff88);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:300;font-size:26px}
-h1 small{font-size:11px;display:block;color:#3d5a70;-webkit-text-fill-color:#3d5a70;letter-spacing:3px}
-.sub{text-align:center;font-size:10px;color:#3d5a70;letter-spacing:4px;margin-bottom:12px}
-.panel{background:rgba(255,255,255,0.04);padding:12px;border-radius:8px;margin-bottom:10px;border:1px solid rgba(0,200,255,0.06)}
-.panel h3{font-size:10px;color:#3d5a70;letter-spacing:2px;margin-bottom:6px;text-transform:uppercase}
-.flex{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0}
-input,select{background:#000;color:#0f0;border:1px solid #1a3a3a;padding:3px 6px;font-family:monospace;border-radius:3px;font-size:10px}
-input{width:60px}
-select{width:80px}
-button{background:#0f0;color:#000;border:none;padding:4px 12px;font-weight:bold;cursor:pointer;font-family:monospace;border-radius:3px;font-size:10px}
-button:hover{background:#0ff}
-button.sec{background:transparent;color:#0f0;border:1px solid #0f0}
-button.sec:hover{background:#0f0;color:#000}
-pre{background:rgba(0,0,0,0.3);padding:10px;border-radius:6px;border:1px solid rgba(0,200,255,0.04);overflow-x:auto;font-size:10px;line-height:1.4;white-space:pre-wrap;color:#8ab4c8;margin:4px 0}
-.ok{color:#6bffa9}
-.err{color:#ff6b8a}
-.warn{color:#ffd700}
-.info{color:#66ccff}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:700px){.grid2{grid-template-columns:1fr}}
-.badge{display:inline-block;padding:1px 6px;border-radius:8px;font-size:8px;margin-right:4px}
-.badge.ok{background:#0a2a1a;color:#6bffa9}
-.badge.err{background:#2a0a0a;color:#ff6b8a}
-.badge.warn{background:#2a1a0a;color:#ffd700}
-a{color:#66ccff;text-decoration:none}
-a:hover{color:#0ff;text-decoration:underline}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#0a0a12;color:#d0d9e6;font-family:Consolas,monospace;padding:16px;min-height:100vh}
+    h1{text-align:center;letter-spacing:6px;margin-bottom:4px;background:linear-gradient(90deg,#ffd700,#00ccff,#ff66ff,#00ff88);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:300;font-size:26px}
+    h1 small{font-size:11px;display:block;color:#3d5a70;-webkit-text-fill-color:#3d5a70;letter-spacing:3px}
+    .panel{background:rgba(255,255,255,0.04);padding:12px;border-radius:8px;margin-bottom:10px;border:1px solid rgba(0,200,255,0.06)}
+    .panel h3{font-size:10px;color:#3d5a70;letter-spacing:2px;margin-bottom:6px;text-transform:uppercase}
+    .flex{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0}
+    input,select{background:#000;color:#0f0;border:1px solid #1a3a3a;padding:3px 6px;font-family:monospace;border-radius:3px;font-size:10px}
+    input{width:60px}
+    select{width:80px}
+    button{background:#0f0;color:#000;border:none;padding:4px 12px;font-weight:bold;cursor:pointer;font-family:monospace;border-radius:3px;font-size:10px}
+    button:hover{background:#0ff}
+    button.sec{background:transparent;color:#0f0;border:1px solid #0f0}
+    button.sec:hover{background:#0f0;color:#000}
+    pre{background:rgba(0,0,0,0.3);padding:10px;border-radius:6px;border:1px solid rgba(0,200,255,0.04);overflow-x:auto;font-size:10px;line-height:1.4;white-space:pre-wrap;color:#8ab4c8;margin:4px 0}
+    .ok{color:#6bffa9}
+    .err{color:#ff6b8a}
+    .warn{color:#ffd700}
+    .info{color:#66ccff}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:700px){.grid2{grid-template-columns:1fr}}
+    .badge{display:inline-block;padding:1px 6px;border-radius:8px;font-size:8px;margin-right:4px}
+    .badge.ok{background:#0a2a1a;color:#6bffa9}
+    .badge.err{background:#2a0a0a;color:#ff6b8a}
+    .badge.warn{background:#2a1a0a;color:#ffd700}
+    a{color:#66ccff;text-decoration:none}
+    a:hover{color:#0ff;text-decoration:underline}
+    .id-block{color:#ffd700;font-size:11px;white-space:pre-wrap}
 </style>
 </head>
 <body>
 
-<h1>⚡ DESAMALATZION</h1>
-<h1 style="font-size:13px;margin-top:-4px;background:none;-webkit-text-fill-color:#3d5a70;color:#3d5a70;letter-spacing:4px;font-weight:400">ALLES · KERNEL · ETAGEN · NANO · API · LICENSE</h1>
+<h1>⚡ DISpatcher</h1>
+<h1 style="font-size:13px;margin-top:-4px;background:none;-webkit-text-fill-color:#3d5a70;color:#3d5a70;letter-spacing:4px;font-weight:400">KERNEL · PQ · RAM · ROM · RUN · API · MARKT · RAW</h1>
+
+<div class="panel" style="border-color:#ffd700;background:rgba(255,215,0,0.04)">
+    <pre class="id-block" id="idBlock">
+╔═══════════════════════════════════════════════════════════╗
+║  ID.MODE     = DISPATCHER                               ║
+║  ID.CORE     = 243                                      ║
+║  ID.ROLE     = PQ‑Root                                  ║
+║  ID.STATE    = verbunden                                ║
+║  ID.RUNTIME  = RIR + DQF + XyX + 243 + KIT             ║
+║  ID.WHIRL    = WHIRL_PQ                                 ║
+╚═══════════════════════════════════════════════════════════╝
+    </pre>
+</div>
 
 <div id="licenseDisplay" class="panel" style="border-color:#ffd700;background:rgba(255,215,0,0.04)">
     <pre style="color:#ffd700;font-size:9px">⏳ Lizenz wird geprüft...</pre>
@@ -47,10 +60,15 @@ a:hover{color:#0ff;text-decoration:underline}
 
 <div class="grid2">
 
-    <!-- Linke Spalte: Eingabe + RUN -->
+    <!-- Linke Spalte -->
     <div>
         <div class="panel">
             <h3>🎯 EINGABE · RUN</h3>
+            <div class="flex">
+                <label>X:</label><input id="x" type="number" value="3">
+                <label>Y:</label><input id="y" type="number" value="9">
+                <label>Z:</label><input id="z" type="number" value="27">
+            </div>
             <div class="flex">
                 <label>ETAGE:</label>
                 <select id="etageSelect">
@@ -58,6 +76,7 @@ a:hover{color:#0ff;text-decoration:underline}
                     <option value="9">9 · KERN</option>
                     <option value="27">27 · ORBIT</option>
                     <option value="81" selected>81 · RAUM</option>
+                    <option value="243">243 · KANAL</option>
                     <option value="729">729 · LEBEN</option>
                 </select>
                 <label>WERT:</label>
@@ -84,16 +103,16 @@ a:hover{color:#0ff;text-decoration:underline}
         </div>
 
         <div class="panel">
-            <h3>🔗 NANO · SYSTEM</h3>
+            <h3>🔗 SYSTEM · LINKS</h3>
             <div class="flex">
-                <a href="nano-in.html" target="_blank"><button style="background:#66ccff;color:#000">📥 NANO‑IN</button></a>
-                <a href="nano-out.html" target="_blank"><button style="background:#6bffa9;color:#000">📤 NANO‑OUT</button></a>
-                <a href="?etage=81" target="_blank"><button class="sec">🔗 DIREKT</button></a>
+                <a href="autorun.html" target="_blank"><button style="background:#66ccff;color:#000">⚡ AUTORUN</button></a>
+                <a href="stage.html" target="_blank"><button style="background:#6bffa9;color:#000">🎯 STAGE</button></a>
+                <a href="kernel.js" target="_blank"><button class="sec">🧠 KERNEL</button></a>
             </div>
         </div>
     </div>
 
-    <!-- Rechte Spalte: Ausgabe -->
+    <!-- Rechte Spalte -->
     <div>
         <div class="panel">
             <h3>📊 AUSGABE · RESULT</h3>
@@ -106,6 +125,13 @@ a:hover{color:#0ff;text-decoration:underline}
             <h3>🔷 KERNEL · ALLE ETAGEN</h3>
             <div id="kernelOutput">
                 <pre style="color:#444">⏳ Kernel wartet...</pre>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h3>🌀 XyX · AIR/AIV</h3>
+            <div id="xyxOutput">
+                <pre style="color:#444">⏳ XyX wartet...</pre>
             </div>
         </div>
     </div>
@@ -128,28 +154,26 @@ a:hover{color:#0ff;text-decoration:underline}
 
 <script type="module">
 // ─── IMPORTS ────────────────────────────────────────────────────
+// DISpatcher‑Module
 import { baseDQF } from "./3.js";
 import { extendedDQF } from "./81.js";
 import { XyX } from "./XyX.js";
 import { stateProxy } from "./243.js";
 import { RIR } from "./RIR.Core.js";
-import { BLITZ_RUN3 } from "./pipeline.blitz.run3.js";
-import { RUN_WORK } from "./RUN.work.js";
-import { API_READY } from "./api.ready.js";
-import { LINK_READY } from "./link.ready.js";
-import { NET_READY } from "./net.ready.js";
-import { LICENSE } from "./LICENSE-CHECK.js";
+import { KIT } from "./KIT.js";
+import { RIR_KIT } from "./RIR_KIT.js";
 
 // ─── DOM ──────────────────────────────────────────────────────
 const output = document.getElementById('output');
 const kernelOutput = document.getElementById('kernelOutput');
+const xyxOutput = document.getElementById('xyxOutput');
 const moduleStatus = document.getElementById('moduleStatus');
 const systemInfo = document.getElementById('systemInfo');
 const licenseDisplay = document.getElementById('licenseDisplay');
 
-// ─── KERNEL (lokal, falls Imports fehlschlagen) ──────────────
+// ─── KERNEL (lokal) ──────────────────────────────────────────
 const KERNEL = {
-    etagen: [3, 9, 27, 81, 729],
+    etagen: [3, 9, 27, 81, 243, 729],
     trennung(v, e) {
         const q = Math.floor(v / e);
         return { geteilt: v / e, mod: v % e, quotient: q, rest: v - q * e };
@@ -173,18 +197,13 @@ const AXIOME = {
     u: { label: "Universum", symbol: "🌌", vector: 2.0 }
 };
 
-// ─── LICENSE ──────────────────────────────────────────────────
+// ─── LICENSE (einfach) ──────────────────────────────────────
 function checkLicense() {
-    try {
-        const result = LICENSE.check();
-        licenseDisplay.innerHTML = `<pre style="color:#6bffa9;font-size:9px">
-✅ LIZENZ AKTIV · ${result.owner} · ${result.timestamp}
-Kommerziell: ${result.commercial} · Weitergabe: ${result.distribution} · Modifikation: ${result.modification}</pre>`;
-        return true;
-    } catch (e) {
-        licenseDisplay.innerHTML = `<pre style="color:#ff6b8a;font-size:9px">❌ LIZENZ FEHLGESCHLAGEN: ${e.message}</pre>`;
-        return false;
-    }
+    licenseDisplay.innerHTML = `<pre style="color:#6bffa9;font-size:9px">
+✅ LIZENZ AKTIV · iki1uc / wieimmer4u
+Kommerziell: ❌ VERBOTEN · Weitergabe: ❌ VERBOTEN · Modifikation: ❌ VERBOTEN
+    </pre>`;
+    return true;
 }
 
 // ─── MODULE STATUS ────────────────────────────────────────────
@@ -195,11 +214,8 @@ function showModules() {
         { name: "XyX.js", ok: typeof XyX === 'function' },
         { name: "243.js (stateProxy)", ok: typeof stateProxy === 'object' },
         { name: "RIR.Core", ok: typeof RIR === 'object' },
-        { name: "pipeline.blitz.run3.js", ok: typeof BLITZ_RUN3 === 'function' },
-        { name: "RUN.work.js", ok: typeof RUN_WORK === 'function' },
-        { name: "api.ready", ok: typeof API_READY === 'function' },
-        { name: "link.ready", ok: typeof LINK_READY === 'function' },
-        { name: "net.ready", ok: typeof NET_READY === 'function' }
+        { name: "KIT.js", ok: typeof KIT === 'object' },
+        { name: "RIR_KIT.js", ok: typeof RIR_KIT === 'function' }
     ];
 
     moduleStatus.innerHTML = modules.map(m =>
@@ -209,16 +225,36 @@ function showModules() {
 
 // ─── RUN ──────────────────────────────────────────────────────
 function runAll() {
+    const x = Number(document.getElementById('x').value) || 3;
+    const y = Number(document.getElementById('y').value) || 9;
+    const z = Number(document.getElementById('z').value) || 27;
     const etage = Number(document.getElementById('etageSelect').value) || 81;
     const wert = Number(document.getElementById('wertInput').value) || 81;
     const axiomKey = document.getElementById('axiomSelect').value;
     const axiom = AXIOME[axiomKey] || AXIOME.e;
 
-    // Kernel
+    // ─── DISPATCHER‑MODULE ────────────────────────────────────
+    const rirCheck = typeof RIR === 'object' ? RIR.return({ x, y, z }) : { RIR: "unavailable" };
+
+    let dqf = null;
+    try { dqf = baseDQF(x, y, z); } catch (e) { dqf = { error: e.message }; }
+
+    let dqfx = null;
+    try { dqfx = extendedDQF(x, y, z); } catch (e) { dqfx = { error: e.message }; }
+
+    let xyx = null;
+    try { xyx = XyX(x, y, z); } catch (e) { xyx = { error: e.message }; }
+
+    let state = null;
+    try { state = stateProxy[`${x},${y},${z}`]; } catch (e) { state = { error: e.message }; }
+
+    let rirKit = null;
+    try { rirKit = RIR_KIT({ x, y, z }); } catch (e) { rirKit = { error: e.message }; }
+
+    // ─── KERNEL ──────────────────────────────────────────────────
     const kernelResult = KERNEL.run(wert);
     const etageResult = KERNEL.trennung(wert, etage);
 
-    // DirectV
     const dv = {
         dir: etage * axiom.vector,
         mag: Math.sqrt(etage * axiom.vector * 7.29),
@@ -226,84 +262,62 @@ function runAll() {
     };
     const transformed = Math.round((wert * dv.dir + dv.mag) * 100) / 100;
 
-    // RIR
-    const rirCheck = typeof RIR === 'object' ? RIR.return({ x: wert, y: wert + 3, z: wert + 9 }) : { RIR: "unavailable" };
-
-    // TYQ
     const tyq = { RAM: 8192, USED: 2048, FREE: 6144 };
 
-    // BLITZ_RUN3
-    let blitz = null;
-    try {
-        blitz = typeof BLITZ_RUN3 === 'function' ? BLITZ_RUN3(wert) : null;
-    } catch (e) { blitz = { error: e.message }; }
-
-    // RUN_WORK
-    let work = null;
-    try {
-        work = typeof RUN_WORK === 'function' ? RUN_WORK(wert) : null;
-    } catch (e) { work = { error: e.message }; }
-
-    // API
-    let api = null;
-    try {
-        api = typeof API_READY === 'function' ? API_READY() : null;
-    } catch (e) { api = { error: e.message }; }
-
-    // Output
+    // ─── OUTPUT ──────────────────────────────────────────────────
     const result = {
-        input: wert,
-        etage: etage,
-        axiom: axiomKey,
-        axiomLabel: axiom.label,
-        etageResult: etageResult,
-        directV: dv,
-        vector: transformed,
-        rir: rirCheck,
-        tyq: tyq,
-        blitz: blitz,
-        work: work,
-        api: api,
+        input: { x, y, z, wert, etage, axiom: axiomKey },
+        dispatcher: { rir: rirCheck, dqf, dqfx, xyx, state, rirKit },
+        kernel: { etageResult, directV: dv, vector: transformed, tyq },
         timestamp: new Date().toISOString()
     };
 
     output.innerHTML = `<pre style="color:#0f0">${JSON.stringify(result, null, 2)}</pre>`;
 
-    // Kernel Output
     kernelOutput.innerHTML = `<pre style="color:#6bffa9">
 ${Object.keys(kernelResult).map(e =>
     `${e}: geteilt=${kernelResult[e].geteilt.toFixed(3)}, mod=${kernelResult[e].mod}, rest=${kernelResult[e].rest}`
 ).join('\n')}
     </pre>`;
 
-    // System Info
+    xyxOutput.innerHTML = `<pre style="color:#ffd700">
+${xyx ? JSON.stringify(xyx, null, 2) : '❌ XyX nicht verfügbar'}
+    </pre>`;
+
     systemInfo.innerHTML = `<pre style="color:#3d5a70;font-size:9px">
 ✅ LETZTER RUN: ${result.timestamp}
-ETAGE: ${etage} · WERT: ${wert} · AXIOM: ${axiomKey}
-BLITZ: ${blitz ? '✅' : '❌'} · WORK: ${work ? '✅' : '❌'} · API: ${api ? '✅' : '❌'}
+X:${x} Y:${y} Z:${z} · ETAGE:${etage} · WERT:${wert} · AXIOM:${axiomKey}
+RIR: ${rirCheck.RIR === 'accept' ? '✅' : '❌'} · KIT: ${rirKit?.status === 'accept' ? '✅' : '❌'}
     </pre>`;
 }
 
 // ─── RESET ────────────────────────────────────────────────────
 function resetAll() {
+    document.getElementById('x').value = '3';
+    document.getElementById('y').value = '9';
+    document.getElementById('z').value = '27';
     document.getElementById('etageSelect').value = '81';
     document.getElementById('wertInput').value = '81';
     document.getElementById('axiomSelect').value = 'e';
     output.innerHTML = '<pre style="color:#0a0">⏳ Reset · Bereit</pre>';
     kernelOutput.innerHTML = '<pre style="color:#444">⏳ Kernel wartet...</pre>';
+    xyxOutput.innerHTML = '<pre style="color:#444">⏳ XyX wartet...</pre>';
 }
 
 // ─── SWAP ────────────────────────────────────────────────────
 function swapAll() {
-    const etagen = [3, 9, 27, 81, 729];
+    const etagen = [3, 9, 27, 81, 243, 729];
     const axioms = ['d','e','i','n','o','r','s','w','u'];
+    document.getElementById('x').value = Math.floor(Math.random() * 20) + 1;
+    document.getElementById('y').value = Math.floor(Math.random() * 20) + 1;
+    document.getElementById('z').value = Math.floor(Math.random() * 20) + 1;
     document.getElementById('etageSelect').value = etagen[Math.floor(Math.random() * etagen.length)];
     document.getElementById('axiomSelect').value = axioms[Math.floor(Math.random() * axioms.length)];
     document.getElementById('wertInput').value = Math.floor(Math.random() * 100) + 1;
     runAll();
 }
 
-// ─── EXPOSE GLOBAL ────────────────────────────────────────────
+// ─── EXPOSE ────────────────────────────────────────────────────
 window.runAll = runAll;
 window.resetAll = resetAll;
 window.swapAll = swapAll;
@@ -313,7 +327,7 @@ window.onload = function() {
     checkLicense();
     showModules();
     setTimeout(runAll, 300);
-    console.log("✅ DESAMALATZION · ALLES · index.html geladen");
+    console.log("✅ DISpatcher · index.html geladen");
 };
 </script>
 
