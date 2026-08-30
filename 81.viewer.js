@@ -49,3 +49,15 @@ export function VIEW_81_MATRIX(matrix) {
 }
 
 export default VIEW_81_MATRIX;
+export function trackAxiomFlow(value, axiom) {
+    const dir = axiom.vector * value;
+    const mag = Math.sqrt(value * axiom.vector * 7.29);
+    const flow = (value * axiom.vector * 3.33).toFixed(2);
+
+    return {
+        dir,
+        mag,
+        flow,
+        transform: Math.round((value * dir + mag) * 100) / 100
+    };
+}
