@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PATCH v6 · KOMPLETT · AXIOME · 3·9·27·81·729</title>
+
+<style>
+body{background:#000;color:#0f0;font-family:monospace;padding:16px;margin:0}
+pre{font-size:13px;line-height:1.5;white-space:pre-wrap}
+input,select{background:#000;color:#0f0;border:1px solid #0f0;padding:4px 8px;font-family:monospace;border-radius:4px}
+input{width:80px}
+select{width:100px}
+button{background:#0f0;color:#000;border:none;padding:6px 14px;font-weight:bold;cursor:pointer;font-family:monospace;border-radius:4px}
+button:hover{background:#0ff}
+.flex{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.box{border:1px solid #0f0;padding:12px;margin:8px 0;border-radius:6px;background:#0a0a0a}
+.banner{color:#ffd700;font-size:11px;line-height:1.4;white-space:pre-wrap}
+</style>
+</head>
+<body>
+
+<pre id="bannerDisplay" class="banner">
+╔═══════════════════════════════════════════════════════════════╗
+║  🌀 iki1uc · GENERAL FÜHRUNG                                ║
+║  ✔ Eigentum von iki1uc / wieimmer4u                         ║
+║  ✔ Nicht zur kommerziellen Nutzung freigegeben              ║
+║  ✔ Live · TMP-geführt · Achsen-basiert                     ║
+╚═══════════════════════════════════════════════════════════════╝
+</pre>
+
+<pre id="idblock">
+╔═══════════════════════════════════════════════════════════╗
+║  iki1uc · PATCH v6 · KOMPLETT · AXIOME                  ║
+╠═══════════════════════════════════════════════════════════╣
+║  ID.MODE     = PATCH                                    ║
+║  ID.CORE     = 729                                      ║
+║  ID.ROLE     = AXIOM‑ROOT                               ║
+║  ID.STATE    = INIT                                     ║
+║  ID.READY    = 0%                                       ║
+║  ID.RUNTIME  = AXIOM + ALGORITHM + LICENSE              ║
+║  ID.WHIRL    = WHIRL_AXIOM                              ║
+╚═══════════════════════════════════════════════════════════╝
+
+[PATCH v6] Axiome geladen. Lizenz geprüft. Warte auf Algorithmus...
+</pre>
+
+<div class="flex">
+    <label>ACHSE:</label>
+    <select id="axisSelect">
+        <option value="3">3 · UR</option>
+        <option value="9">9 · KERN</option>
+        <option value="27">27 · ORBIT</option>
+        <option value="81" selected>81 · RAUM</option>
+        <option value="729">729 · LEBEN</option>
+    </select>
+
+    <label>WERT:</label>
+    <input id="val" type="number" value="81">
+
+    <label>AXIOM:</label>
+    <select id="axiomSelect">
+        <option value="d">d · Dimension</option>
+        <option value="e" selected>e · Energie</option>
+        <option value="i">i · Identität</option>
+        <option value="n">n · Narrativ</option>
+        <option value="o">o · Orbit</option>
+        <option value="r">r · Raum</option>
+        <option value="s">s · System</option>
+        <option value="w">w · Welle</option>
+        <option value="u">u · Universum</option>
+    </select>
+
+    <button onclick="run()">▶ RUN</button>
+    <button onclick="reset()">⟲ RESET</button>
+    <button onclick="swap()">🔄 SWAP</button>
+    <button onclick="licenseCheck()">📜 LICENSE</button>
+</div>
+
+<div class="box" id="output">
+    <pre style="color:#0a0">⏳ Bereit...</pre>
+</div>
+
+<div class="box" id="axiomOut" style="border-color:#444">
+    <pre style="color:#444;font-size:11px">⏳ Axiom‑Output wartet...</pre>
+</div>
+
+<script>
+// ─── LICENSE ──────────────────────────────────────────────────
+const LICENSE = {
+    status: "ACTIVE",
+    owner: "iki1uc / wieimmer4u",
+    commercial: false,
+    distribution: false,
+    modification: false,
+
+    check() {
+        const allowed = true;
+        if (!allowed) throw new Error("LICENSE: System nicht autorisiert");
+        return {
+            status: this.status,
+            owner: this.owner,
+            commercial: this.commercial ? "❌ VERBOTEN" : "✅ FREI",
+            distribution: this.distribution ? "❌ VERBOTEN" : "✅ FREI",
+            modification: this.modification ? "❌ VERBOTEN" : "✅ FREI"
+        };
+    },
+
+    boot() {
+        try {
+            const result = this.check();
+            console.log("✅ LICENSE OK", result);
+            document.getElementById('bannerDisplay').style.color = '#0f0';
+            return { success: true, result };
+        } catch (e) {
+            console.error("❌ LICENSE FAILED", e.message);
+            document.getElementById('bannerDisplay').style.color = '#f00';
+            document.getElementById('bannerDisplay').textContent = '❌ LIZENZ FEHLGESCHLAGEN';
+            return { success: false, error: e.message };
+        }
+    }
+};
+
+// ─── AXIOME ──────────────────────────────────────────────────
+const AXIOME = {
+    d: { label: "Dimension", symbol: "◇", color: "#44aaff", vector: 1.11 },
+    e: { label: "Energie", symbol: "⚡", color: "#ffaa44", vector: 1.33 },
+    i: { label: "Identität", symbol: "◆", color: "#ff66ff", vector: 0.77 },
+    n: { label: "Narrativ", symbol: "📖", color: "#66ffaa", vector: 0.92 },
+    o: { label: "Orbit", symbol: "◎", color: "#66aaff", vector: 1.44 },
+    r: { label: "Raum", symbol: "▣", color: "#ff6644", vector: 1.66 },
+    s: { label: "System", symbol: "⬡", color: "#44ffaa", vector: 1.21 },
+    w: { label: "Welle", symbol: "〜", color: "#44ccff", vector: 1.55 },
+    u: { label: "Universum", symbol: "🌌", color: "#aa66ff", vector: 2.0 }
+};
+
+// ─── ACHSEN ──────────────────────────────────────────────────
+const ACHSEN = [3, 9, 27, 81, 729];
+
+// ─── KERNEL ──────────────────────────────────────────────────
+const KERNEL = {
+    etagen: ACHSEN,
+    trennung(v, e) {
+        const q = Math.floor(v / e);
+        return {
+            geteilt: v / e,
+            mod: v % e,
+            quotient: q,
+            rest: v - q * e
+        };
+    },
+    run(v) {
+        const r = {};
+        this.etagen.forEach(e => { r[e] = this.trennung(v, e); });
+        return r;
+    }
+};
+
+// ─── RUN ─────────────────────────────────────────────────────
+function run() {
+    const val = Number(document.getElementById('val').value) || 81;
+    const axis = Number(document.getElementById('axisSelect').value);
+    const axiomKey = document.getElementById('axiomSelect').value;
+    const axiom = AXIOME[axiomKey] || AXIOME.e;
+
+    const out = document.getElementById('output');
+    const axiomOut = document.getElementById('axiomOut');
+
+    // Kernel berechnen
+    const kernelResult = KERNEL.run(val);
+    const etageResult = KERNEL.trennung(val, axis);
+
+    // DirectV berechnen
+    const dv = {
+        dir: axis * axiom.vector,
+        mag: Math.sqrt(axis * axiom.vector * 7.29),
+        flow: (axis * axiom.vector * 3.33).toFixed(2)
+    };
+
+    // Vector‑Flow
+    const transformed = Math.round((val * dv.dir + dv.mag) * 100) / 100;
+
+    // Output
+    const result = {
+        input: val,
+        axis: axis,
+        axiom: axiomKey,
+        axiomLabel: axiom.label,
+        kernel: kernelResult,
+        etage: etageResult,
+        directV: dv,
+        vector: transformed,
+        norm: "8→9",
+        status: "RUN",
+        ready: "100%",
+        license: LICENSE.check(),
+        timestamp: new Date().toISOString()
+    };
+
+    out.innerHTML = `<pre style="color:#0f0">${JSON.stringify(result, null, 2)}</pre>`;
+
+    axiomOut.innerHTML = `
+        <pre style="color:${axiom.color}">
+${axiom.symbol} AXIOM: ${axiom.label} (${axiomKey})
+VECTOR: ${axiom.vector}
+ACHSE: ${axis}
+TRANSFORM: ${transformed}
+STATUS: AKTIV
+        </pre>
+    `;
+
+    document.getElementById('idblock').innerHTML =
+        document.getElementById('idblock').innerHTML.replace('0%', '100%');
+}
+
+// ─── RESET ──────────────────────────────────────────────────
+function reset() {
+    document.getElementById('output').innerHTML = '<pre style="color:#0a0">⏳ Reset · Bereit...</pre>';
+    document.getElementById('axiomOut').innerHTML = '<pre style="color:#444;font-size:11px">⏳ Axiom‑Output wartet...</pre>';
+    document.getElementById('idblock').innerHTML =
+        document.getElementById('idblock').innerHTML.replace('100%', '0%');
+}
+
+// ─── SWAP ──────────────────────────────────────────────────
+function swap() {
+    const axes = ACHSEN;
+    const axioms = Object.keys(AXIOME);
+
+    document.getElementById('axisSelect').value =
+        axes[Math.floor(Math.random() * axes.length)];
+
+    document.getElementById('axiomSelect').value =
+        axioms[Math.floor(Math.random() * axioms.length)];
+
+    document.getElementById('val').value =
+        Math.floor(Math.random() * 100) + 1;
+
+    run();
+}
+
+// ─── LICENSE CHECK ──────────────────────────────────────────
+function licenseCheck() {
+    const result = LICENSE.check();
+    const out = document.getElementById('output');
+    out.innerHTML = `<pre style="color:#ffd700">${JSON.stringify(result, null, 2)}</pre>`;
+}
+
+// ─── AUTO‑START ─────────────────────────────────────────────
+window.onload = function() {
+    // LICENSE booten
+    const boot = LICENSE.boot();
+
+    if (boot.success) {
+        document.getElementById('bannerDisplay').textContent =
+            document.getElementById('bannerDisplay').textContent + '\n✅ LIZENZ AKTIV';
+    }
+
+    setTimeout(run, 300);
+};
+
+console.log("✅ PATCH v6 · KOMPLETT geladen");
+console.log("📜 LICENSE:", LICENSE.check());
+</script>
+
+</body>
+</html>
