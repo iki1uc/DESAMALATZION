@@ -1,1 +1,17 @@
+export const LINK_READY = () => {
+    const stamp = () => new Date().toISOString();
+
+    return {
+        link: "ready",
+        version: "1.0",
+        timestamp: stamp(),
+        open: (url) => ({ url, opened: true, timestamp: stamp() }),
+        status: () => ({
+            link: "ready",
+            time: stamp()
+        })
+    };
+};
+
+export default LINK_READY;
 
