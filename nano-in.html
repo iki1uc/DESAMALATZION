@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NANO · IN · Eingabe</title>
+<style>
+body{background:#000;color:#0f0;font-family:monospace;padding:10px;margin:0}
+pre{font-size:11px;line-height:1.4}
+.flex{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0}
+input,select{background:#000;color:#0f0;border:1px solid #0f0;padding:3px 6px;font-family:monospace;border-radius:3px;font-size:11px}
+input{width:60px}
+select{width:80px}
+button{background:#0f0;color:#000;border:none;padding:4px 12px;font-weight:bold;cursor:pointer;font-family:monospace;border-radius:3px;font-size:11px}
+button:hover{background:#0ff}
+.box{border:1px solid #0f0;padding:8px;margin:4px 0;border-radius:4px;background:#0a0a0a}
+</style>
+</head>
+<body>
+
+<pre>
+╔═══════════════════════════════════════════╗
+║  NANO · IN · EINGABE                     ║
+║  ETAGEN: 3·9·27·81·729                   ║
+║  URSACHE → WIRKUNG                       ║
+╚═══════════════════════════════════════════╝
+</pre>
+
+<div class="box">
+    <div class="flex">
+        <label>ETAGE:</label>
+        <select id="etageSelect">
+            <option value="3">3 · UR</option>
+            <option value="9">9 · KERN</option>
+            <option value="27">27 · ORBIT</option>
+            <option value="81" selected>81 · RAUM</option>
+            <option value="729">729 · LEBEN</option>
+        </select>
+
+        <label>WERT:</label>
+        <input id="wertInput" type="number" value="81">
+
+        <label>AXIOM:</label>
+        <select id="axiomSelect">
+            <option value="d">d</option>
+            <option value="e" selected>e</option>
+            <option value="i">i</option>
+            <option value="n">n</option>
+            <option value="o">o</option>
+            <option value="r">r</option>
+            <option value="s">s</option>
+            <option value="w">w</option>
+            <option value="u">u</option>
+        </select>
+
+        <button onclick="send()">▶ SEND</button>
+        <button onclick="resetAll()">⟲ RESET</button>
+        <button onclick="swapAll()">🔄 SWAP</button>
+    </div>
+</div>
+
+<div class="box" id="status">
+    <pre style="color:#0a0">⏳ Bereit · Sende an OUT...</pre>
+</div>
+
+<script>
+// ─── SEND ──────────────────────────────────────────────────
+function send() {
+    const etage = document.getElementById('etageSelect').value;
+    const wert = document.getElementById('wertInput').value;
+    const axiom = document.getElementById('axiomSelect').value;
+
+    // URL für OUT bauen
+    const url = `nano-out.html?etage=${etage}&wert=${wert}&axiom=${axiom}`;
+
+    // Status anzeigen
+    document.getElementById('status').innerHTML = `
+        <pre style="color:#0f0">
+📤 GESENDET:
+ETAGE: ${etage}
+WERT:  ${wert}
+AXIOM: ${axiom}
+➡️ ${url}
+        </pre>
+    `;
+
+    // OUT in neuem Tab/Frame öffnen
+    window.open(url, '_blank');
+}
+
+// ─── RESET ──────────────────────────────────────────────────
+function resetAll() {
+    document.getElementById('etageSelect').value = '81';
+    document.getElementById('wertInput').value = '81';
+    document.getElementById('axiomSelect').value = 'e';
+    document.getElementById('status').innerHTML = '<pre style="color:#0a0">⟲ Reset · Bereit</pre>';
+}
+
+// ─── SWAP ──────────────────────────────────────────────────
+function swapAll() {
+    const etagen = [3, 9, 27, 81, 729];
+    const axioms = ['d','e','i','n','o','r','s','w','u'];
+
+    document.getElementById('etageSelect').value =
+        etagen[Math.floor(Math.random() * etagen.length)];
+
+    document.getElementById('axiomSelect').value =
+        axioms[Math.floor(Math.random() * axioms.length)];
+
+    document.getElementById('wertInput').value =
+        Math.floor(Math.random() * 100) + 1;
+
+    send();
+}
+
+// ─── AUTO‑START ─────────────────────────────────────────────
+window.onload = () => {
+    document.getElementById('status').innerHTML = '<pre style="color:#0a0">⏳ Bereit · Klicke SEND</pre>';
+};
+</script>
+
+</body>
+</html>
