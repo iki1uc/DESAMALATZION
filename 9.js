@@ -12,3 +12,10 @@ export const ETAGE9 = (v = 0) => {
 
 export default ETAGE9;
 
+export function trackBlitz(value) {
+    try {
+        return BLITZ_RUN3(value);
+    } catch (e) {
+        return { error: e.message };
+    }
+}
